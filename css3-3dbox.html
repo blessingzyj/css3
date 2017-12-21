@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3-3d</title>
+	<style>
+		body {
+			/*perspective: 500px;*/
+		}
+		.box {
+			width: 200px;
+			height: 200px;
+			/*border: 1px solid gray;*/
+			position: relative;
+			margin: 150px auto;
+			transform-style: preserve-3d;
+			/*transition: all 8s;*/
+		}
+		.box .item {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			text-align: center;
+			line-height: 200px;
+			font-size: 80px;
+			font-weight: 700;
+			color: white;
+		}
+		.box .item:nth-child(1) {
+			background-color: #E91E63;
+			opacity: 0.3;
+			transform: translateZ(100px);
+		}
+		.box .item:nth-child(2) {
+			background-color: skyblue;
+			opacity: 0.3;
+			transform: rotateY(180deg) translateZ(100px);
+		}
+		.box .item:nth-child(3) {
+			background-color: red;
+			opacity: 0.3;
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		.box .item:nth-child(4) {
+			background-color: gray;
+			opacity: 0.3;
+			transform: rotateY(-90deg) translateZ(100px);
+		}
+		.box .item:nth-child(5) {
+			background-color: yellow;
+			opacity: 0.3;
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		.box .item:nth-child(6) {
+			background-color: green;
+			opacity: 0.3;
+			transform: rotateX(-90deg) translateZ(100px);
+		}
+		
+
+		  @keyframes toright{
+            from{
+                /* from中如果不设置 默认使用的是 初始状态 */
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+        /* 准备一个class 内部定义了动画的各种效果 */
+        .box{
+            /* 动画的名字 */
+            animation-name: toright;
+
+            /* 动画持续多久 */
+            animation-duration: 5s;
+
+            /* 设置动画的次数
+                动画次数
+                可以给具体的值
+                infinite 无限
+            */
+            animation-iteration-count: infinite;
+
+            /* 动画的速度 线型 */
+            animation-timing-function: linear;
+
+            /* 动画的延迟事件 */
+            animation-delay: 0s;
+        }
+        @keyframes stepAnimation{
+            /* 起始状态 */
+            0%{
+
+            }
+            /* 返回到起始的位置 */
+            100%{
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+		<div class="item">6</div>
+	</div>
+</body>
+</html>
